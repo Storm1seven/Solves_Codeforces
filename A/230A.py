@@ -1,17 +1,15 @@
 s, n = map(int, input().split())
-d = {}
 z = []
 for _ in range(n):
 	x, y = map(int, input().split())
-	z.append(x)
-	d[x] = y
-z.sort()
-flag = False
-while z[0] < s:
-	s+=d[z[0]]
-	z.remove(z[0])
-	if z == []:
-		flag = True
+	z.append((x, y))
+z.sort(key = lambda x:x[0])
+flag = True
+for i in z:
+	if i[0] < s:
+		s+=i[1]
+	else:
+		flag = False
 		break
 if flag:
 	print('YES')
