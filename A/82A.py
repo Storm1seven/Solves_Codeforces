@@ -1,11 +1,8 @@
-import math
-a = ["Sheldon", "Leonard", "Penny", "Rajesh", "Howard"]
-n = int(input())
-if n < 6:
-	print(a[n-1])
-else:
-	t = math.ceil((math.log2(n//5)))-1
-	rem = n - 5*2**t
-	count = 2**t
-	x = rem/count
-	print(a[math.ceil(x)-1])
+n=int(input())
+a=["Sheldon", "Leonard", "Penny", "Rajesh", "Howard"]
+i=-1
+while n>0:
+    i+=1
+    n-=5*2**i
+n+=5*2**i-1
+print(a[n//2**i])
